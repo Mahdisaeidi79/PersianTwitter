@@ -5,6 +5,9 @@ html {
   }
   body {
     margin: 0;
+    overflow: hidden;
+    direction: rtl !important;
+    padding: 0;
   }
   main {
     display: block;
@@ -178,7 +181,28 @@ html {
   }
   /*-------------- Font init ------------------ */
 
-  *{
-    box-sizing: border-box;
-    direction: rtl;
+*{
+   box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: unset;
+}
+a:visited{
+  color: unset;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: whitesmoke;
+}
+::-webkit-scrollbar-thumb {
+  background: #5ea9dd;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #89b8da;
+}
+#root {
+  scrollbar-color: #5ea9dd whitesmoke;
 }

@@ -1,6 +1,8 @@
-import { Divider, Grid, Typography } from '@material-ui/core';
-import React from 'react';
+import { ButtonBase, Divider, Grid, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import useStyle from './style';
+import { getUsers } from '../../Api/api_tweet';
 
 const Tweetest = ({ name, id, img }) => {
     var classes = useStyle()
@@ -14,37 +16,20 @@ const Tweetest = ({ name, id, img }) => {
         </Grid>
     )
 }
-
-const tweetest = [
-    {
-        name: 'xiaomi',
-        id: '@xiaomi',
-        img: 'images/xiaomi.png'
-    },
-    {
-        name: 'Samsung',
-        id: '@samsung',
-        img: 'images/samsung.png'
-    }, {
-        name: 'بیل گیتس',
-        id: '@BillGates',
-        img: 'images/bil.png'
-    }, {
-        name: 'مایک بای',
-        id: '@Mike_IMC',
-        img: 'images/mike.png'
-    }, {
-        name: 'شرلی ونگ',
-        id: '@Shirley_IMC',
-        img: 'images/shily.png'
-    },
-]
 const LeftSidebar = () => {
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        getUsers((isOk, data)=>{
+            if(!isOk)
+            return alert("لیست اعضا دریافت نشد");
+            setUsers(data);
+        })
+    }, []);
     var classes = useStyle()
     return (
         <div className={classes.root}>
             <Grid container direction={"row-reverse"}>
-                <img src={"images/user img.png"} alt={"عکس پروفایل"} style={{ width: 'max-content' }} />
+                <img src={"/images/user img.png"} alt={"عکس پروفایل"} style={{ width: 'max-content' }} />
                 <Grid item container className={classes.profile}>
                     <Typography className={classes.profileName}>محمد مهدی سعیدی</Typography>
                     <Typography className={classes.profileId}>M._.M</Typography>
@@ -56,14 +41,18 @@ const LeftSidebar = () => {
             </Typography>
                 <Divider style={{ margin: '0 -5% 0 -5%' }} />
                 {
-                    tweetest.map((item, index) =>{
+                    users.map((item, index) => {
                         return (
                             <React.Fragment>
-                            <Tweetest name={item.name} id={item.name} img={item.img} />
-                            {
-                                index !== tweetest.length - 1 && <Divider style={{ margin: '0 -5% 0 -5%' }} />
-                            }
-                        </React.Fragment>
+                                <Link to={`/Users/${item.name}`}>
+                                <ButtonBase disableRipple = {true}>
+                                <Tweetest name={item.name} id={item.id} img={item.img} />
+                                </ButtonBase>
+                                </Link>
+                                {
+                                    index !== users.length - 1 && <Divider style={{ margin: '0 -5% 0 -5%' }} />
+                                }
+                            </React.Fragment>
                         )
                     })
                 }

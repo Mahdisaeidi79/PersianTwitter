@@ -1,0 +1,178 @@
+{
+  "tweets": [
+    {
+      "sender": {
+        "name": "xiaomi",
+        "id": "xiaomi@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
+      "like": "500"
+    },
+    {
+      "sender": {
+        "name": "Samsung",
+        "id": "samsung@",
+        "img": "/images/samsung.png"
+      },
+      "text": "اینو دیگه همه میدونن که گوشی فقط سامسونگ",
+      "like": "400"
+    },
+    {
+      "sender": {
+        "name": "xiaomi",
+        "id": "xiaomi@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
+      "like": "500"
+    },
+    {
+      "sender": {
+        "name": "Samsung",
+        "id": "samsung@",
+        "img": "/images/samsung.png"
+      },
+      "text": "اینو دیگه همه میدونن که گوشی فقط سامسونگ",
+      "like": "400"
+    },
+    {
+      "sender": {
+        "name": "xiaomi",
+        "id": "xiaomi@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
+      "like": "500"
+    },
+    {
+      "sender": {
+        "name": "Samsung",
+        "id": "samsung@",
+        "img": "/images/samsung.png"
+      },
+      "text": "اینو دیگه همه میدونن که گوشی فقط سامسونگ",
+      "like": "400"
+    },
+    {
+      "sender": {
+        "name": "Samsung",
+        "id": "samsung@",
+        "img": "/images/samsung.png"
+      },
+      "text": "اینو دیگه همه میدونن که گوشی فقط سامسونگ",
+      "like": "400"
+    },
+    {
+      "sender": {
+        "name": "xiaomi",
+        "id": "xiaomi@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
+      "like": "500"
+    },
+    {
+      "sender": {
+        "name": "Samsung",
+        "id": "samsung@",
+        "img": "/images/samsung.png"
+      },
+      "text": "اینو دیگه همه میدونن که گوشی فقط سامسونگ",
+      "like": "400"
+    },
+    {
+      "sender": {
+        "name": "xiaomi",
+        "id": "xiaomi@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
+      "like": "500"
+    },
+    {
+      "id": 676,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "salam",
+      "like": "500"
+    },
+    {
+      "id": 971,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "salam",
+      "like": "500"
+    },
+    {
+      "id": 352,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "salam",
+      "like": "500"
+    },
+    {
+      "id": 779,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "salam",
+      "like": "500"
+    },
+    {
+      "id": 697,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "این یک توییت از ساختار جدید است",
+      "like": "500"
+    }
+  ],
+  "hashtags": [
+    "تحریم",
+    "سامسونگ",
+    "هلوسامر",
+    "پرچم_دار_جدید",
+    "کرونا_ویروس"
+  ],
+  "users": [
+    {
+      "name": "Xiaomi",
+      "id": "xiaomi@",
+      "img": "/images/xiaomi.png"
+    },
+    {
+      "name": "Samsung",
+      "id": "samsung@",
+      "img": "/images/samsung.png"
+    },
+    {
+      "name": "بیل گیتس",
+      "id": "BillGates@",
+      "img": "/images/bil.png"
+    },
+    {
+      "name": "مایک بای",
+      "id": "Mike_IMC@",
+      "img": "/images/mike.png"
+    },
+    {
+      "name": "شرلی ونگ",
+      "id": "Shirley_IMC@",
+      "img": "/images/shily.png"
+    }
+  ]
+}

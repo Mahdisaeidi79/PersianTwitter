@@ -31,7 +31,7 @@ const useStyle = makeStyles({
         background :'#f5f8fa',
         marginTop :'3rem',
         borderRadius : '2.5rem',
-        padding : '13px 24px'
+        padding : '13px 24px',
     },
     titleBest:{
         color: '#5ea9dd !important',
