@@ -120,6 +120,16 @@
       },
       "text": "یک #تست دیگر",
       "like": "500"
+    },
+    {
+      "id": 727,
+      "sender": {
+        "name": "M.M",
+        "id": "M_M@",
+        "img": "/images/xiaomi.png"
+      },
+      "text": "این یک #توییت جدید است",
+      "like": "500"
     }
   ],
   "hashtags": [

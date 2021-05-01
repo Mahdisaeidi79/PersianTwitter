@@ -11,7 +11,7 @@ export default function TweetsByHashtag(prop) {
         getAllTweets((isOk, data) => {
             if (!isOk)
                 return alert("توییت ها بر اساس هشتگ دریافت نشد");
-            setTweets(data)
+            else return setTweets(data)
         })
     }, []);
     var classes = useStyle()

@@ -28,7 +28,10 @@ export default function NewTweet() {
       newTweetRequest(data , (isOk) =>{
           if(!isOk)
           return alert("توییت ثبت نشد")
-          else alert("توییت با موفقیت ثبت شد")
+          else {
+              alert("توییت با موفقیت ثبت شد")
+              window.location.reload()
+            }
       });
     }
     return (
