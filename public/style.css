@@ -206,3 +206,16 @@ a:visited{
 #root {
   scrollbar-color: #5ea9dd whitesmoke;
 }
+::placeholder { 
+  color: #e6e6e6;
+  opacity: 0.7; 
+}
+:-ms-input-placeholder { 
+  color:#e6e6e6;
+}
+::-ms-input-placeholder { 
+  color: #e6e6e6;
+}
+.Toastify{
+  text-align: end;
+}

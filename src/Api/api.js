@@ -1,10 +1,18 @@
 import axios from 'axios';
 
-export const getAxiosInstance = ()=> {
+export const getAxiosInstanceJsonServer = ()=> {
    return axios.create({
        baseURL:"http://localhost:3000",
        headers:{
            API_KEY:'grgrgu4h493923b'
        }
+   })
+}
+export const getAxiosInstanceAuth = ()=> {
+   return axios.create({
+       baseURL:"https://twitterapi.liara.run/api/",
+      /*  headers:{
+           API_KEY:'grgrgu4h493923b'
+       } */
    })
 }

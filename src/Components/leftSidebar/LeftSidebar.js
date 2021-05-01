@@ -1,4 +1,4 @@
-import { ButtonBase, Divider, Grid, Typography } from '@material-ui/core';
+import { ButtonBase, Divider, Grid, Menu, MenuItem, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import useStyle from './style';
@@ -17,18 +17,25 @@ const Tweetest = ({ name, id, img }) => {
     )
 }
 const LeftSidebar = () => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const handleClose = () => {
+        setAnchorEl(null);
+      };
+    const openMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    }  
     const [users, setUsers] = useState([])
     useEffect(() => {
-        getUsers((isOk, data)=>{
-            if(!isOk)
-            return alert("لیست اعضا دریافت نشد");
+        getUsers((isOk, data) => {
+            if (!isOk)
+                return alert("لیست اعضا دریافت نشد");
             setUsers(data);
         })
     }, []);
     var classes = useStyle()
     return (
         <div className={classes.root}>
-            <Grid container direction={"row-reverse"}>
+            <Grid container direction={"row-reverse"} onClick ={openMenu}>
                 <img src={"/images/user img.png"} alt={"عکس پروفایل"} style={{ width: 'max-content' }} />
                 <Grid item container className={classes.profile}>
                     <Typography className={classes.profileName}>محمد مهدی سعیدی</Typography>
@@ -45,9 +52,9 @@ const LeftSidebar = () => {
                         return (
                             <React.Fragment>
                                 <Link to={`/Users/${item.name}`}>
-                                <ButtonBase disableRipple = {true}>
-                                <Tweetest name={item.name} id={item.id} img={item.img} />
-                                </ButtonBase>
+                                    <ButtonBase disableRipple={true}>
+                                        <Tweetest name={item.name} id={item.id} img={item.img} />
+                                    </ButtonBase>
                                 </Link>
                                 {
                                     index !== users.length - 1 && <Divider style={{ margin: '0 -5% 0 -5%' }} />
@@ -57,7 +64,9 @@ const LeftSidebar = () => {
                     })
                 }
             </Grid>
-
+            <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+                <MenuItem onClick = {()=>{localStorage.clear();window.location.reload()}}>خروج</MenuItem>
+            </Menu>
         </div>
     )
 }

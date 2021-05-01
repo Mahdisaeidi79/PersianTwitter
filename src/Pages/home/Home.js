@@ -15,7 +15,7 @@ export default function Home() {
                 return alert("دریافت نشد");
             setTweets(data)
         })
-    }, []);
+    }, [tweets]);
     var classes = useStyle()
     return (
         <div className={classes.root}>
@@ -25,8 +25,6 @@ export default function Home() {
             {
                 tweets.map((item) => <TweetList data={item} />)
             }
-
-
         </div>
     )
 }

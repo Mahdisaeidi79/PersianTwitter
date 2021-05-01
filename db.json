@@ -82,62 +82,43 @@
       "like": "400"
     },
     {
-      "sender": {
-        "name": "xiaomi",
-        "id": "xiaomi@",
-        "img": "/images/xiaomi.png"
-      },
-      "text": "من همیشه بهترین گوشی ها رو تولید میکنم",
-      "like": "500"
-    },
-    {
-      "id": 676,
+      "id": 503,
       "sender": {
         "name": "M.M",
         "id": "M_M@",
         "img": "/images/xiaomi.png"
       },
-      "text": "salam",
+      "text": "این یک #توییت با ساختاری #جدید می باشد 😁",
       "like": "500"
     },
     {
-      "id": 971,
+      "id": 875,
       "sender": {
         "name": "M.M",
         "id": "M_M@",
         "img": "/images/xiaomi.png"
       },
-      "text": "salam",
+      "text": "این یک تست  #useEffect میباشد",
       "like": "500"
     },
     {
-      "id": 352,
+      "id": 609,
       "sender": {
         "name": "M.M",
         "id": "M_M@",
         "img": "/images/xiaomi.png"
       },
-      "text": "salam",
+      "text": "یک #تست دیگر",
       "like": "500"
     },
     {
-      "id": 779,
+      "id": 64,
       "sender": {
         "name": "M.M",
         "id": "M_M@",
         "img": "/images/xiaomi.png"
       },
-      "text": "salam",
-      "like": "500"
-    },
-    {
-      "id": 697,
-      "sender": {
-        "name": "M.M",
-        "id": "M_M@",
-        "img": "/images/xiaomi.png"
-      },
-      "text": "این یک توییت از ساختار جدید است",
+      "text": "یک #تست دیگر",
       "like": "500"
     }
   ],
