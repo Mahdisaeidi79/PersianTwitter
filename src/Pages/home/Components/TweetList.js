@@ -7,17 +7,28 @@ export default function TweetList({ data }) {
     var classes = setStyle()
     const renderTweet = (text) => {
         return { __html: text.replace(/#\S+/g, "<a href='/tags/$&' style ='color:cornflowerblue ; text-decoration: none'>$&</a>") }
+    };
+    const userImage = () => {
+        if (data.user.image)
+            return data.user.image;
+        else return "images/person.png"
     }
     return (
         <div className={classes.tweetList}>
             <Grid container>
-                <img src={data.sender.img} alt={"عکس پروفایل"} style={{ height: 'max-content' }} />
+                <img src={userImage()} alt={"عکس پروفایل"} style={{ height: '60px', width: '60px', borderRadius: '50%' }} />
                 <Grid item container direction={"column"} style={{ flex: 1, marginRight: '1.3rem' }}>
                     <Grid item container>
-                        <Typography className={classes.tweetListName}>{data.sender.name}</Typography>
-                        <Typography className={classes.tweetListId}>{data.sender.id}</Typography>
+                        <Typography className={classes.tweetListName}>{data.user.name}</Typography>
+                        <Typography className={classes.tweetListId}>{data.user.id}</Typography>
                     </Grid>
                     <Typography dangerouslySetInnerHTML={renderTweet(data.text)} className={classes.tweetText}></Typography>
+                    {
+                        data.image &&
+                        <div>
+                    <div style = {{backgroundImage : `url(${data.image})` , width :'300px' , height :'150px' , backgroundSize:'contain' , backgroundRepeat : 'no-repeat'}} />
+                        </div>
+                    }
                 </Grid>
 
             </Grid>
@@ -28,7 +39,7 @@ export default function TweetList({ data }) {
                 <IconButton className={classes.newTweetimg} >
                     <FavoriteIcon style={{ color: 'red' }} />
                 </IconButton>
-                <Typography className={classes.tweetLikeCount}>{data.like}</Typography>
+                <Typography className={classes.tweetLikeCount}>{data.likes}</Typography>
             </Grid>
         </div>
     )

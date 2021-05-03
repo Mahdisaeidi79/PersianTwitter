@@ -32,20 +32,19 @@ export default function Rightsidebar() {
                 </Typography>
             
                 {
-                    Hashtags.map((item) =>
+                     Hashtags.map((item) =>
                         <ButtonBase className={classes.parentHashTag} disableRipple = {true}>
-                            <Link to={`/Hashtags/${item}`} style={{width:'100%'}}>
+                            <Link to={`/Hashtags/${item.text}`} style={{width:'100%'}}>
                             <Grid item container>
                                 <img src={"/images/hashtag.png"} alt={"هشتگ ها"} />
                                 <Typography className={classes.hashTag}>
-                                    {item}
+                                    {item.text}
                                 </Typography>
                             </Grid>
                             </Link>
-                        </ButtonBase>
-                    )
+                        </ButtonBase> 
+                     )
                 }
-
             </Grid>
         </div>
     )

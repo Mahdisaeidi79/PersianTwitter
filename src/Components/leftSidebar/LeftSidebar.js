@@ -8,10 +8,15 @@ import { toast } from 'react-toastify';
 
 const Tweetest = ({ name, id, img }) => {
     var classes = useStyle()
+    const userImage = () => {
+        if (img)
+            return img;
+        else return "images/person.png"
+    }
     return (
         <Grid container direction={"row"} className={classes.Tweetest}>
-            <img src={img} alt={"عکس پروفایل"} style={{ width: 50 }} />
-            <Grid item container className={classes.profileTweetests}>
+            <img src={userImage()} alt={"عکس پروفایل"} style={{ width: '45px', height: '45px', borderRadius: '50%' }} />
+            <Grid item container direction={"column"} className={classes.profileTweetests}>
                 <Typography className={classes.profileName} style={{ direction: "rtl", fontWeight: 'bold' }}>{name}</Typography>
                 <Typography className={classes.profileId} style={{ direction: "rtl" }}>{id}</Typography>
             </Grid>
@@ -21,6 +26,7 @@ const Tweetest = ({ name, id, img }) => {
 const LeftSidebar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const inputFile = useRef();
+    const [users, setUsers] = useState([]);
     const [imageFile, setImageFile] = useState();
     const [imagePath, setImagePath] = useState();
     const handleClose = () => {
@@ -29,7 +35,6 @@ const LeftSidebar = () => {
     const openMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    const [users, setUsers] = useState([])
     useEffect(() => {
         getUsers((isOk, data) => {
             if (!isOk)
@@ -39,17 +44,15 @@ const LeftSidebar = () => {
     }, []);
     const setUserImg = (e) => {
         if (e.target.files && e.target.files.length > 0) {
-            setImageFile(e.target.files[0]);
+            setImageFile(e.target.files[0])
             const reader = new FileReader();
             reader.onload = (e) => {
                 setImagePath(e.target.result);
-            }
+            };
             reader.readAsDataURL(e.target.files[0]);
             const formData = new FormData();
             formData.append("image", e.target.files[0]);
-            console.log("Append");
             uploadUserPhoto(formData, (isOk, data) => {
-                console.log("upload");
                 if (!isOk)
                     return toast.error(data, {
                         position: "bottom-right",
@@ -60,30 +63,28 @@ const LeftSidebar = () => {
                         draggable: true,
                         progress: undefined,
                     });
-                else {
-                     toast.success("عکس شما با موفقیت آپلود شد", {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                    localStorage.setItem("image", data.imagePath);
-                }
+                toast.success("عکس شما با موفقیت آپلود شد", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                localStorage.setItem("image", data.imagePath);
             })
         }
     };
     const profileImg = () => {
         if (imagePath)
             return imagePath;
-        if (localStorage.getItem("image") && localStorage.getItem("image") !== "undefined")
-            return localStorage.getItem("image")
+        if (localStorage.getItem("image") && localStorage.getItem("image") !== 'undefined')
+            return localStorage.getItem("image");
         return "/images/user-profiles.png"
-    }
+    };
 
-    var classes = useStyle()
+    const classes = useStyle()
     return (
         <div className={classes.root}>
             <Grid container direction={"row-reverse"} onClick={openMenu}>
@@ -92,7 +93,7 @@ const LeftSidebar = () => {
                     <Typography className={classes.profileName}>{localStorage.getItem('name')}</Typography>
                     <Typography className={classes.profileId}>{localStorage.getItem('username')}</Typography>
                 </Grid>
-                <input ref={inputFile} type="file" style={{ display: 'none' }} onClick={setUserImg} />
+                <input ref={inputFile} type={'file'} style={{ display: 'none' }} onChange={setUserImg} />
             </Grid>
             <Grid item container className={classes.bestOfTweet} direction={"column"} >
                 <Typography className={classes.titleBest} >
@@ -105,7 +106,7 @@ const LeftSidebar = () => {
                             <React.Fragment>
                                 <Link to={`/Users/${item.name}`}>
                                     <ButtonBase disableRipple={true}>
-                                        <Tweetest name={item.name} id={item.id} img={item.img} />
+                                        <Tweetest name={item.name} id={item.username} img={item.image} />
                                     </ButtonBase>
                                 </Link>
                                 {

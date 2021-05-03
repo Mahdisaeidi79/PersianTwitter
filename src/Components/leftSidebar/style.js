@@ -9,9 +9,9 @@ const useStyle = makeStyles({
         padding : '0.8rem 0'
     },
     profileTweetests :{
-        marginRight : '1rem',
         width : 'max-content',
-        marginLeft :0
+       alignItems :'flex-start',
+       marginRight :'1rem'
     },
     profile:{
         width : 'max-content',

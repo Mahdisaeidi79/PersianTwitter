@@ -1,7 +1,7 @@
-import { getAxiosInstanceJsonServer } from "./api"
+import { getAxiosInstanceApi, getAxiosInstanceJsonServer } from "./api"
 
 export const getAllTweets = (callback) => {
-    getAxiosInstanceJsonServer().get("/tweets")
+    getAxiosInstanceApi().post("getAllTweet")/* this is use for real backend */
         .then(response => {
             const data = response.data;
             callback(true, data);
@@ -9,8 +9,17 @@ export const getAllTweets = (callback) => {
             callback(false, error);
         })
 };
+/* export const getAllTweets = (callback) => { 
+getAxiosInstanceJsonServer().post("getAllTweet")
+        .then(response => {
+            const data = response.data;
+            callback(true, data);
+        }).catch(error => {
+            callback(false, error);
+        })
+}; */
 export const getHashTags = (callback) => {
-    getAxiosInstanceJsonServer().get("/hashtags")
+    getAxiosInstanceApi().get("getAllHashTags")
         .then(response => {
             const data = response.data;
             callback(true, data);
@@ -19,7 +28,7 @@ export const getHashTags = (callback) => {
         })
 };
 export const getUsers = (callback) => {
-    getAxiosInstanceJsonServer().get("/users")
+    getAxiosInstanceApi().get("getAllUser")
         .then(response => {
             const data = response.data;
             callback(true, data);
@@ -28,7 +37,7 @@ export const getUsers = (callback) => {
         })
 };
 export const newTweetRequest = (data, callback) => {
-    getAxiosInstanceJsonServer().post("/tweets",data)
+    getAxiosInstanceApi().post("newTweet",data)
         .then(response => {
             callback(true, data);
         }).catch(error => {
