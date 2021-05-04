@@ -3,18 +3,20 @@ import React from 'react';
 import { newTweetRequest } from '../../../Api/api_tweet';
 import setStyle from '../style';
 import { toast } from 'react-toastify';
+import { useTweetDispatch, useTweetState } from '../../../context/TweetContext';
+import {setTweetText as setTweet} from '../../../context/TweetContext'
 
 export default function NewTweet() {
     var classes = setStyle()
-    const value = React.useRef()
     const inputFile = React.useRef();
+    const {tweetText:tweetTextState} = useTweetState()
     const [imageFile, setImageFile] = React.useState();
     const [imagePath, setImagePath] = React.useState();
+    const tweetDispatch = useTweetDispatch();
     const tweetBtn = ()=> {
-        const tweetText = value.current.value;
+        const tweetText =tweetTextState;
         if(!tweetText) 
         return;
-    
       const formData = new FormData();
       formData.append("text", tweetText);
       if (imageFile)
@@ -41,7 +43,7 @@ export default function NewTweet() {
                 progress: undefined,
             });
               window.location.reload()
-              value.current.value = ""
+              setTweet(tweetDispatch,"")
             }
       });
     };
@@ -65,7 +67,7 @@ export default function NewTweet() {
         <div className={classes.newTweet}>
             <Grid container>
                 <img src={profileImg()} alt={"عکس پروفایل"} style={{height: '60px' , width: '60px' ,borderRadius :'50%'}} />
-                 <textarea placeholder={"توییت جدید بزن ..."} className={classes.input} ref={value} /> 
+                 <textarea placeholder={"توییت جدید بزن ..."} className={classes.input} value = {tweetTextState} onChange = {(e)=> setTweet(tweetDispatch,e.target.value)} /> 
                  <input type = {"file"} style = {{display :'none'}} ref={inputFile} onChange={imageInTweet} />
             </Grid>
             {

@@ -44,3 +44,13 @@ export const newTweetRequest = (data, callback) => {
             callback(false, error);
         })
 }
+export const likeTweetRequest = (id, callback) => {
+    getAxiosInstanceApi().get("likeTweet/"+id)
+      .then(response => {
+        const data = response.data;
+        callback(true, data);
+      }).catch(error => {
+      console.log(error);
+      callback(false, error);
+    });
+  };

@@ -1,19 +1,21 @@
 import { Divider } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import Header from '../../Components/header/Header';
 import HomeIcon from '@material-ui/icons/Home';
 import NewTweet from './Components/NewTweet';
 import TweetList from './Components/TweetList';
 import useStyle from './style';
 import { getAllTweets } from '../../Api/api_tweet';
+import { useTweetState , useTweetDispatch , setTweetList} from '../../context/TweetContext';
 
 export default function Home() {
-    const [tweets, setTweets] = useState([])
+   const {tweetList:tweets} = useTweetState()
+   const tweetDispatch = useTweetDispatch();
     useEffect(() => {
         getAllTweets((isOk, data) => {
             if (!isOk)
                 return alert("دریافت نشد");
-            else return setTweets(data)
+             setTweetList(tweetDispatch,data);
         })
     }, []);
     var classes = useStyle()
