@@ -1,14 +1,14 @@
 import { Grid, IconButton, Typography } from '@material-ui/core'
 import React from 'react'
-import setStyle from '../style'
+import useStyle from '../style'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { likeTweet, setTweetText, useTweetDispatch } from '../../../context/TweetContext';
 import { likeTweetRequest } from '../../../Api/api_tweet';
 import { toast } from 'react-toastify';
 
-export default function TweetList({ data }) {
+const TweetList = ({ data }) => {
     const tweetDispatch = useTweetDispatch();
-    var classes = setStyle()
+    const classes = useStyle()
     const renderTweet = (text) => {
         return { __html: text.replace(/#\S+/g, "<a href='/tags/$&' style ='color:cornflowerblue ; text-decoration: none'>$&</a>") }
     };
@@ -58,3 +58,4 @@ export default function TweetList({ data }) {
         </div>
     )
 }
+export default TweetList;

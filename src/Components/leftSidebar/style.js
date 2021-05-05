@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyle = makeStyles({
+const useStyles = makeStyles({
     root: {
         width : '23%',
         padding :'1.7rem 1.5rem'
@@ -41,4 +41,4 @@ const useStyle = makeStyles({
     }
 });
 
-export default useStyle;
+export default useStyles;

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyle = makeStyles({
+const useStyles = makeStyles({
     root: {
         width: '16.4%',
         position :'static'
@@ -15,13 +15,12 @@ const useStyle = makeStyles({
         color: '#5ea9dd',
         marginRight: '1rem',
         fontSize: 45,
-       flex:1
+        flex:1
     },
     titleHashtag: {
         fontSize : '1.2rem !important',
         fontWeight : '600',
         margin : '3rem 1rem 1.5rem 0'
-
     },
     parentHashTag:{
         width : '100%',
@@ -37,9 +36,8 @@ const useStyle = makeStyles({
     },
     hashTag:{
         marginRight : '0.8rem',
-        fontSize : '1.3rem',
-       
+        fontSize : '1.3rem'
     }
 });
 
-export default useStyle; 
+export default useStyles; 

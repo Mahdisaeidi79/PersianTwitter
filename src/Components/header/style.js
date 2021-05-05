@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyle = makeStyles({
+const useStyles = makeStyles({
     header:{
         display :'flex',
         padding : '1.5rem',
@@ -13,4 +13,4 @@ const useStyle = makeStyles({
     }
 });
 
-export default useStyle;
+export default useStyles;

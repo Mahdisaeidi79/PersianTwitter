@@ -2,14 +2,15 @@ import React from 'react'
 import { Typography } from '@material-ui/core';
 import useStyle from './style'
 
-export default function Header({title,icon}) {
-    var classes = useStyle()
+const Header = ({ title, icon }) => {
+    const classes = useStyle()
     return (
         <div className={classes.header}>
-                {icon}
+            {icon}
             <Typography className={classes.headerTitle}>
                 {title}
             </Typography>
         </div>
     )
 }
+export default Header;

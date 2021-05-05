@@ -1,10 +1,8 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyle = makeStyles({
+const useStyles = makeStyles({
     root : {
-        backgroundColor : '#e6e6e6',
-        flex :1,
-        overflow:'auto'
+        backgroundColor : '#e6e6e6'
     },
     header:{
         display :'flex',
@@ -23,13 +21,15 @@ const useStyle = makeStyles({
     newTweet :{
         padding : '1.5rem',
         backgroundColor : 'white',
-        flex :1
+        display: 'flex',
+        flexDirection: 'column'
     },
     tweetList:{
         padding : '1.5rem',
         backgroundColor : 'white',
-        flex :1,
-        marginTop : '0.5rem'
+        display: 'flex',
+        marginTop : '0.5rem',
+        flexDirection: 'column'
     },
     input:{
         flex :1,
@@ -85,4 +85,4 @@ const useStyle = makeStyles({
      }
 });
 
-export default useStyle;
+export default useStyles;

@@ -1,20 +1,24 @@
 import { Divider } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../../Components/header/Header';
 import TweetList from '../home/Components/TweetList';
-import useStyle from './style';
-import { getAllTweets } from '../../Api/api_tweet';
+import useStyle from '../home/style';
+import { getAllTweetsByHashtag } from '../../Api/api_tweet';
+import { setTweetList, useTweetDispatch, useTweetState } from '../../context/TweetContext';
+import { useLocation } from 'react-router-dom'
 
-export default function TweetsByHashtag(prop) {
-    const [tweets, setTweets] = useState([]);
+const TweetsByHashtag = (prop) => {
+    const location = useLocation();
+    const { tweetList: tweets } = useTweetState()
+    const tweetDispatch = useTweetDispatch();
     useEffect(() => {
-        getAllTweets((isOk, data) => {
+        getAllTweetsByHashtag(prop.match.params.Hashtag, (isOk, data) => {
             if (!isOk)
                 return alert("توییت ها بر اساس هشتگ دریافت نشد");
-            else return setTweets(data)
+            else return setTweetList(tweetDispatch, data)
         })
-    }, []);
-    var classes = useStyle()
+    }, [location]);
+    const classes = useStyle()
     return (
         <div className={classes.root}>
             <Header title={prop.match.params.Hashtag} icon={<img src={"/images/hashtag.png"} alt={"hastag"} />} />{/* react router param */}
@@ -26,3 +30,4 @@ export default function TweetsByHashtag(prop) {
         </div>
     )
 }
+export default TweetsByHashtag;

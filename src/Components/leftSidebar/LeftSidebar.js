@@ -6,8 +6,8 @@ import { getUsers } from '../../Api/api_tweet';
 import { uploadUserPhoto } from '../../Api/api_auth';
 import { toast } from 'react-toastify';
 
-const Tweetest = ({ name, id, img }) => {
-    var classes = useStyle()
+export const Tweetest = ({ name, id, img }) => {
+    const classes = useStyle()
     const userImage = () => {
         if (img)
             return img;
@@ -73,6 +73,7 @@ const LeftSidebar = () => {
                     progress: undefined,
                 });
                 localStorage.setItem("image", data.imagePath);
+                window.location.reload();
             })
         }
     };
@@ -91,7 +92,7 @@ const LeftSidebar = () => {
                 <img src={profileImg()} alt={"عکس پروفایل"} style={{ width: '48px', height: '45px', borderRadius: '50%' }} />
                 <Grid item container className={classes.profile}>
                     <Typography className={classes.profileName}>{localStorage.getItem('name')}</Typography>
-                    <Typography className={classes.profileId}>{localStorage.getItem('username')}</Typography>
+                    <Typography className={classes.profileId}>{"@"+localStorage.getItem('username')}</Typography>
                 </Grid>
                 <input ref={inputFile} type={'file'} style={{ display: 'none' }} onChange={setUserImg} />
             </Grid>
@@ -104,14 +105,14 @@ const LeftSidebar = () => {
                     users.map((item, index) => {
                         return (
                             <React.Fragment>
-                                <Link to={`/Users/${item.name}`}>
+                                <Link to={`/Users/${item._id}/${item.name}`}>
                                     <ButtonBase disableRipple={true}>
                                         <Tweetest name={item.name} id={item.username} img={item.image} />
                                     </ButtonBase>
-                                </Link>
                                 {
                                     index !== users.length - 1 && <Divider style={{ margin: '0 -5% 0 -5%' }} />
                                 }
+                                </Link>
                             </React.Fragment>
                         )
                     })
@@ -124,4 +125,4 @@ const LeftSidebar = () => {
         </div>
     )
 }
-export default LeftSidebar
+export default LeftSidebar;

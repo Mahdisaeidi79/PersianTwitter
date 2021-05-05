@@ -1,4 +1,5 @@
 import React from "react";
+import { getHashTags } from "../Api/api_tweet";
 
 var TweetStateContext = React.createContext();
 var TweetDispatchContext = React.createContext();
@@ -9,6 +10,8 @@ function tweetReducer(state, action) {
       return { ...state, tweetText: action.payload };
     case "SET_TWEET_LIST":
       return { ...state, tweetList: action.payload };
+    case "HASHTAGS_LIST":
+      return { ...state, hashtagsList: action.payload };
     case "LIKE_TWEET":
       const tweetId = action.payload;
       const foundIndex = state.tweetList.findIndex(item => item._id === tweetId);
@@ -24,7 +27,8 @@ function tweetReducer(state, action) {
 function TweetProvider({ children }) { /* to show info and use this up the place we use context */
   var [state, dispatch] = React.useReducer(tweetReducer, {
     tweetText: '',
-    tweetList: []
+    tweetList: [],
+    hashtagsList : []
   });
   return (
     <TweetStateContext.Provider value={state}>
@@ -51,7 +55,7 @@ function useTweetDispatch() { /* update states */
   return context;
 }
 
-export { TweetProvider, useTweetState, useTweetDispatch, setTweetText, setTweetList, likeTweet };
+export { TweetProvider, useTweetState, useTweetDispatch, setTweetText, setTweetList, likeTweet ,setHashtagsList,updateHashtagsList};
 
 // ###########################################################
 function setTweetText(dispatch, tweetText) {
@@ -72,4 +76,18 @@ function likeTweet(dispatch, idTweet) {
     payload: idTweet
   });
 }
-
+function setHashtagsList(dispatch, hashtags) {
+  dispatch({
+    type: "HASHTAGS_LIST",
+    payload: hashtags
+  });
+}
+function updateHashtagsList(dispatch) {
+  getHashTags((isOk, data)=>{
+    if(isOk)
+    dispatch({
+      type: "HASHTAGS_LIST",
+      payload: data
+    });
+  })
+}

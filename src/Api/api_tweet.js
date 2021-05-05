@@ -9,6 +9,24 @@ export const getAllTweets = (callback) => {
             callback(false, error);
         })
 };
+export const getAllTweetsByHashtag = (hashTag,callback) => {
+    getAxiosInstanceApi().post("getAllTweet" , {hashTag})
+        .then(response => {
+            const data = response.data;
+            callback(true, data);
+        }).catch(error => {
+            callback(false, error);
+        })
+};
+export const getAllTweetsByUser = (user,callback) => {
+    getAxiosInstanceApi().post("getAllTweet" , {user})
+        .then(response => {
+            const data = response.data;
+            callback(true, data);
+        }).catch(error => {
+            callback(false, error);
+        })
+};
 /* export const getAllTweets = (callback) => { 
 getAxiosInstanceJsonServer().post("getAllTweet")
         .then(response => {
@@ -46,6 +64,16 @@ export const newTweetRequest = (data, callback) => {
 }
 export const likeTweetRequest = (id, callback) => {
     getAxiosInstanceApi().get("likeTweet/"+id)
+      .then(response => {
+        const data = response.data;
+        callback(true, data);
+      }).catch(error => {
+      console.log(error);
+      callback(false, error);
+    });
+  };
+export const getProfileRequest =  (callback) => {
+    getAxiosInstanceApi().get("getProfile")
       .then(response => {
         const data = response.data;
         callback(true, data);
