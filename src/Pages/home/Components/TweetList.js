@@ -30,7 +30,7 @@ const TweetList = ({ data }) => {
     return (
         <div className={classes.tweetList}>
             <Grid container>
-                <img src={userImage()} alt={"عکس پروفایل"} style={{ height: '60px', width: '60px', borderRadius: '50%' }} />
+                <img src={userImage()} alt={"عکس پروفایل"} style={{ height: '3.75rem', width: '3.75rem', borderRadius: '50%' }} />
                 <Grid item container direction={"column"} style={{ flex: 1, marginRight: '1.3rem' }}>
                     <Grid item container>
                         <Typography className={classes.tweetListName}>{data.user.name}</Typography>
@@ -40,7 +40,7 @@ const TweetList = ({ data }) => {
                     {
                         data.image &&
                         <div>
-                            <div style={{ backgroundImage: `url(${data.image})`, width: '300px', height: '150px', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }} />
+                            <div style={{ backgroundImage: `url(${data.image})`, width: '18.75rem', height: '9.375rem', backgroundSize: 'contain', backgroundRepeat: 'no-repeat',marginTop: '2rem' }} />
                         </div>
                     }
                 </Grid>

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 const useStyle = makeStyles({
     root : {
         background : 'linear-gradient(to left top, #FFFFFF, #6DD5FA, #2980B9)',
-        minHeight : '100vh'
+        height : '100vh'
     },
     container:{
         position : 'absolute',
@@ -29,18 +29,24 @@ const useStyle = makeStyles({
         fontSize : '1.5rem'
     },
     Login:{
-        margin : '1rem auto',
-        width : '50%',
-        textAlign:'center',
-        borderRadius : '2rem',
-        padding : '0rem 3rem 2rem 3rem'
+        display :'flex',
+        flexDirection : 'column',
+        alignItems:'center',
+        justifyContent:'center',
+        position:'relative',
+        top:0,
+        left:0,
+        width : '100%'
     },
     Register:{
-        margin : '1rem auto',
-        width : '50%',
-        textAlign:'center',
-        borderRadius : '2rem',
-        padding : '0rem 3rem 2rem 3rem'
+        display :'flex',
+        flexDirection : 'column',
+        alignItems:'center',
+        justifyContent:'center',
+        position:'relative',
+        top:0,
+        left:0,
+        width : '100%'
     },
     input:{
         background : 'transparent',

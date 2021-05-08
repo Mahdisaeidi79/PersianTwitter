@@ -1,9 +1,12 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles({
+const useStyle = makeStyles((theme) => ({
     root: {
         width: '16.4%',
-        position :'static'
+        padding: '0rem 0.3rem',
+        [theme.breakpoints.down("sm")] :{
+            width: '100%'
+        }
     },
     textLogo: {
         padding: '1.5rem 1rem !important',
@@ -24,7 +27,7 @@ const useStyles = makeStyles({
     },
     parentHashTag:{
         width : '100%',
-        padding : '0.6rem',
+        padding : '0.4rem',
         marginBottom : '0.8rem',
         "&:hover":{
             backgroundColor:"#5ea9dd",
@@ -38,6 +41,6 @@ const useStyles = makeStyles({
         marginRight : '0.8rem',
         fontSize : '1.3rem'
     }
-});
+}));
 
-export default useStyles; 
+export default useStyle; 

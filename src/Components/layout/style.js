@@ -1,7 +1,7 @@
 
 import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
     root : {
         display : 'flex',
         height : '100vh',
@@ -16,7 +16,16 @@ const useStyles = makeStyles({
     },
     container:{
         width :'60.6%',
-        overflowY : 'auto'
+        overflowY : 'auto',
+        [theme.breakpoints.down("sm")] :{
+            width: '80%'
+        },
+        [theme.breakpoints.down("xs")] :{
+            width: '70%'
+        },
+        [theme.breakpoints.between('xs','426')] :{
+            width :'100%'
+        }
     },
     waitParent:{
         display :'flex',
@@ -29,6 +38,6 @@ const useStyles = makeStyles({
         width : '100%',
         height:'100vh'
       }
-});
+}));
 
 export default useStyles;

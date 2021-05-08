@@ -70,14 +70,14 @@ const NewTweet = () => {
   return (
     <div className={classes.newTweet}>
       <Grid container>
-        <img src={profileImg()} alt={"عکس پروفایل"} style={{ height: '60px', width: '60px', borderRadius: '50%' }} />
+        <img src={profileImg()} alt={"عکس پروفایل"} style={{ height: '3.75rem', width: '3.75rem', borderRadius: '50%' }} />
         <textarea placeholder={"توییت جدید بزن ..."} className={classes.input} value={tweetTextState} onChange={(e) => setTweet(tweetDispatch, e.target.value)} />
         <input type={"file"} style={{ display: 'none' }} ref={inputFile} onChange={imageInTweet} />
       </Grid>
       {
         imagePath &&
         <div>
-          <div style={{ backgroundImage: `url(${imagePath})`, width: '300px', height: '150px', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }} />
+          <div style={{ backgroundImage: `url(${imagePath})`, width: '18.75rem', height: '9.375rem', backgroundSize: 'contain', backgroundRepeat: 'no-repeat',marginTop: '2rem'}} />
         </div>
       }
       <Grid container direction={"row-reverse"} style={{ marginTop: '2rem' }}>

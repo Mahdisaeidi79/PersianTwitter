@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core'
+import { Divider, useMediaQuery, useTheme } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import LeftSidebar from '../leftSidebar/LeftSidebar';
 import Rightsidebar from '../rightsidebar/Rightsidebar';
@@ -7,11 +7,16 @@ import { getProfileRequest } from '../../Api/api_tweet';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
-
+import ToggleRightSideBar from '../toggleRightSideBar/ToggleRightSideBar';
+import ToggleLeftSideBar from '../toggleLeftSideBar/ToggleLeftSideBar';
 
 const Layout = (props) => {
-    const classes = useStyle()
-    const [wait, setWait] = useState(true)
+    const classes = useStyle();
+    const [wait, setWait] = useState(true);
+    const theme = useTheme();
+    const isTabletSize = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMobileSize = useMediaQuery(theme.breakpoints.between('xs','426'));
+
     const history = useHistory();
     useEffect(() => {
         getProfileRequest((isOk, data) => {
@@ -30,18 +35,19 @@ const Layout = (props) => {
     }, []);
     if (wait)
         return <div className={classes.waitParent}>
-            <ReactLoading type={'spinningBubbles'} color={'#5ea9dd'} height={'4%'} width={'4%'} />
+            <ReactLoading type={'spinningBubbles'} color={'#5ea9dd'} height={'6%'} width={'6%'} />
         </div>
     else
         return (
             <div className={classes.root}>
-                <Rightsidebar />
+                {isTabletSize ? <ToggleRightSideBar /> : <Rightsidebar />}
                 <Divider orientation={"vertical"} className={classes.divider} />
                 <div className={classes.container}>
                     {props.children}
                 </div>
                 <Divider orientation={"vertical"} className={classes.divider} />
-                <LeftSidebar />
+                {isMobileSize ? <ToggleLeftSideBar/> : <LeftSidebar />}
+                
             </div>
 
         )

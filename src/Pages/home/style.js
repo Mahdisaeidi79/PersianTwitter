@@ -35,7 +35,7 @@ const useStyles = makeStyles({
         flex :1,
         marginRight : '1rem',
         padding :'0.7rem 0.7rem 0 0',
-        border : '0.5px solid #edf5ff ',
+        border : '1.5px solid #edf5ff ',
         "&:focus":{
             outline : 0
         },

@@ -15,10 +15,10 @@ export const Tweetest = ({ name, id, img }) => {
     }
     return (
         <Grid container direction={"row"} className={classes.Tweetest}>
-            <img src={userImage()} alt={"عکس پروفایل"} style={{ width: '45px', height: '45px', borderRadius: '50%' }} />
+            <img src={userImage()} alt={"عکس پروفایل"} className={classes.profileImgTweetest} />
             <Grid item container direction={"column"} className={classes.profileTweetests}>
-                <Typography className={classes.profileName} style={{ direction: "rtl", fontWeight: 'bold' }}>{name}</Typography>
-                <Typography className={classes.profileId} style={{ direction: "rtl" }}>{id}</Typography>
+                <Typography className={classes.profileNameTweetest}>{name}</Typography>
+                <Typography className={classes.profileIdTweetest}>{id}@</Typography>
             </Grid>
         </Grid>
     )
@@ -89,7 +89,7 @@ const LeftSidebar = () => {
     return (
         <div className={classes.root}>
             <Grid container direction={"row-reverse"} onClick={openMenu}>
-                <img src={profileImg()} alt={"عکس پروفایل"} style={{ width: '48px', height: '45px', borderRadius: '50%' }} />
+                <img src={profileImg()} alt={"عکس پروفایل"} className={classes.profileImg} />
                 <Grid item container className={classes.profile}>
                     <Typography className={classes.profileName}>{localStorage.getItem('name')}</Typography>
                     <Typography className={classes.profileId}>{"@"+localStorage.getItem('username')}</Typography>
@@ -100,7 +100,7 @@ const LeftSidebar = () => {
                 <Typography className={classes.titleBest} >
                     فعال ترین توییت بازها
             </Typography>
-                <Divider style={{ margin: '0 -5% 0 -5%' }} />
+                <Divider className={classes.divider} />
                 {
                     users.map((item, index) => {
                         return (
@@ -110,7 +110,7 @@ const LeftSidebar = () => {
                                         <Tweetest name={item.name} id={item.username} img={item.image} />
                                     </ButtonBase>
                                 {
-                                    index !== users.length - 1 && <Divider style={{ margin: '0 -5% 0 -5%' }} />
+                                    index !== users.length - 1 && <Divider className={classes.divider} />
                                 }
                                 </Link>
                             </React.Fragment>
