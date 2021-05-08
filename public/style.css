@@ -220,6 +220,12 @@ a:visited{
   width: 30%;
 }
 @media (min-width: 0px) and (max-width: 600.95px){
+  .Toastify__toast-container{
+    width: 65% !important;
+    margin-bottom: 2rem !important;
+  }
+}
+@media (min-width: 0px) and (max-width: 600.95px){
   .MuiDrawer-paper{
     width: 50%;
   }
@@ -232,5 +238,10 @@ a:visited{
 @media (min-width: 0px) and (max-width: 416.95px){
   .MuiDrawer-paper{
     width: 66%;
+  }
+}
+@media (min-width: 900px){
+  .MuiTab-root{
+    width: 40%;
   }
 }

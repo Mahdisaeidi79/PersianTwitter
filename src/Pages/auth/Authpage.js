@@ -1,6 +1,6 @@
 import { Button, Paper, Tab, Tabs, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
-import { loginApi , registerApi} from '../../Api/api_auth';
+import { loginApi, registerApi } from '../../Api/api_auth';
 import useStyle from './style';
 import { toast } from 'react-toastify';
 
@@ -13,14 +13,14 @@ export default function Authpage() {
         setTab(newValue);
     };
     const validationRegisters = (user) => {
-        if(!user.name) 
-            return "لطفا نام خود را وارد کنید"    
+        if (!user.name)
+            return "لطفا نام خود را وارد کنید"
         if (!user.username)
             return "لطفا نام کاربری را وارد کنید "
         if (!user.password)
             return "لطفا رمز عبور را وارد کنید "
-        if(user.password !== user.confpasswordRegister) 
-            return "لطفا رمز عبور را شبیه هم وارد کنید"   
+        if (user.password !== user.confpasswordRegister)
+            return "لطفا رمز عبور را شبیه هم وارد کنید"
     };
     const validationLogin = (user) => {
         if (!user.username)
@@ -55,19 +55,10 @@ export default function Authpage() {
                 draggable: true,
                 progress: undefined,
             });
-            user.confpasswordRegister = undefined;
-            registerApi(user, (isOk, data) => {
-                if (!isOk)
-                    return toast.error(data, {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                toast.success("با موفقیت ثبت نام کردید", {
+        user.confpasswordRegister = undefined;
+        registerApi(user, (isOk, data) => {
+            if (!isOk)
+                return toast.error(data, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -76,12 +67,21 @@ export default function Authpage() {
                     draggable: true,
                     progress: undefined,
                 });
-                localStorage.setItem("name", data.name);
-                localStorage.setItem("image", data.image);
-                localStorage.setItem("username", data.username);
-                localStorage.setItem("x-auth-token", data["x-auth-token"]);
-                window.location.reload();
-            })
+            toast.success("با موفقیت ثبت نام کردید", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            localStorage.setItem("name", data.name);
+            localStorage.setItem("image", data.image);
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("x-auth-token", data["x-auth-token"]);
+            window.location.reload();
+        })
     };
     const LoginBtn = () => {
         const user = {
@@ -134,7 +134,7 @@ export default function Authpage() {
                     <div className={classes.Login}>
                         <input type="text" value={usernameLogin} onChange={e => setUsernameLogin(e.target.value)} placeholder={"نام کاربری"} className={classes.input} />
                         <input type="password" value={passwordLogin} onChange={e => setPasswordLogin(e.target.value)} placeholder={"رمز عبور"} className={classes.input} />
-                        <Button variant="contained" onClick={LoginBtn} style={{ marginTop: '2rem', backgroundColor: '#5ea9dd', color: 'white' }}>ورود</Button>
+                        <Button variant="contained" onClick={LoginBtn} style={{ marginTop: '2.5rem', backgroundColor: '#5ea9dd', color: 'white', marginBottom: '2rem' }}>ورود</Button>
                     </div>
                 }
                 {tab === REG_TAB_VALUE &&
@@ -143,16 +143,10 @@ export default function Authpage() {
                         <input type="text" value={usernameRegister} onChange={e => setUsernameRegister(e.target.value)} placeholder={"نام کاربری"} className={classes.input}></input>
                         <input type="password" value={passwordRegister} onChange={e => setPasswordRegister(e.target.value)} placeholder={"رمز عبور"} className={classes.input}></input>
                         <input type="password" value={confpasswordRegister} onChange={e => setConfPasswordRegister(e.target.value)} placeholder={"تکرار رمز عبور"} className={classes.input}></input>
-                        <Button variant="contained" onClick={RegisterBtn} style={{ marginTop: '2rem', backgroundColor: '#5ea9dd', color: 'white' }}>ثبت نام</Button>
+                        <Button variant="contained" onClick={RegisterBtn} style={{ marginTop: '2.5rem', backgroundColor: '#5ea9dd', color: 'white', marginBottom: '2rem' }}>ثبت نام</Button>
                     </div>
                 }
-                <Tabs
-                    value={tab}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    onChange={handleChange}
-                    aria-label="disabled tabs example"
-                >
+                <Tabs value={tab} indicatorColor="primary" textColor="primary" onChange={handleChange} aria-label="disabled tabs example">
                     <Tab label="ورود" value={LOGIN_TAB_VALUE} className={classes.tab} />
                     <Tab label="ثبت نام" value={REG_TAB_VALUE} className={classes.tab} />
                 </Tabs>
