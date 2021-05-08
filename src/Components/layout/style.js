@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme)=>({
         [theme.breakpoints.down("xs")] :{
             width: '70%'
         },
-        [theme.breakpoints.between('xs','426')] :{
+        [theme.breakpoints.between('xs','600')] :{
             width :'100%'
         }
     },

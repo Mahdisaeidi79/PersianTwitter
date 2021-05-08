@@ -15,7 +15,7 @@ const Layout = (props) => {
     const [wait, setWait] = useState(true);
     const theme = useTheme();
     const isTabletSize = useMediaQuery(theme.breakpoints.down('sm'));
-    const isMobileSize = useMediaQuery(theme.breakpoints.between('xs','426'));
+    const isMobileSize = useMediaQuery(theme.breakpoints.between('xs','600'));
 
     const history = useHistory();
     useEffect(() => {

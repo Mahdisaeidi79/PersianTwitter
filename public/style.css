@@ -219,7 +219,7 @@ a:visited{
 .MuiDrawer-paper{
   width: 30%;
 }
-@media (min-width: 0px) and (max-width: 425.95px){
+@media (min-width: 0px) and (max-width: 600.95px){
   .MuiDrawer-paper{
     width: 50%;
   }

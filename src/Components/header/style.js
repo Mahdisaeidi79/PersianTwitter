@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     header:{
         display :'flex',
         padding : '1.5rem',
@@ -11,6 +11,6 @@ const useStyles = makeStyles({
         fontWeight :'bold',
         marginRight :'0.5rem'
     }
-});
+}));
 
 export default useStyles;

@@ -4,17 +4,20 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: '23%',
         padding: '1.7rem 1.5rem',
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.between("680",'sm')]: {
             width: '35%'
         },
-        [theme.breakpoints.between('xs', '426')]: {
+        [theme.breakpoints.between('xs', '600')]: {
             width: '100%',
             padding: '0.5rem 0.2rem'
+        },
+        [theme.breakpoints.between('600', '680')]: {
+            width: '38%'
         }
     },
     Tweetest: {
         padding: '0.8rem 0',
-        [theme.breakpoints.between('xs', '426')]: {
+        [theme.breakpoints.between('xs', '600')]: {
             width: '100%',
             padding: '0.5rem 0'
         }
@@ -26,17 +29,12 @@ const useStyles = makeStyles((theme) => ({
     },
     profile: {
         width: 'max-content',
-        marginLeft: '0.8rem',
-        [theme.breakpoints.between('xs', '426')]: {
-            marginLeft: '0.1rem',
-        }
+        marginLeft: '0.8rem'
     },
     profileImg: {
         width: '3rem',
         height: '2.81rem',
         borderRadius: '50%',
-       
-
     },
     profileName: {
         width: '100%',
@@ -69,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '3rem',
         borderRadius: '2.5rem',
         padding: '13px 24px',
-        [theme.breakpoints.between('xs', '426')]: {
+        [theme.breakpoints.between('xs', '600')]: {
             width: '100% !important'
         }
     },
@@ -81,15 +79,15 @@ const useStyles = makeStyles((theme) => ({
     },
     divider: {
         margin: '0 -5% 0 -5%',
-        [theme.breakpoints.between('xs', '426')]: {
-            margin: '0 -1.5rem 0 1rem'
+        [theme.breakpoints.between('xs', '600')]: {
+            margin: '0 -6% 0 5%'
         }
     },
     profileImgTweetest: {
         width: '2.81rem',
         height: '2.81rem',
         borderRadius: '50%',
-        [theme.breakpoints.between('xs', '376')]: {
+        [theme.breakpoints.between('xs', '682')]: {
             width: '2.2rem',
             height: '2.2rem',
         }

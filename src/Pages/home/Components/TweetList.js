@@ -34,7 +34,7 @@ const TweetList = ({ data }) => {
                 <Grid item container direction={"column"} style={{ flex: 1, marginRight: '1.3rem' }}>
                     <Grid item container>
                         <Typography className={classes.tweetListName}>{data.user.name}</Typography>
-                        <Typography className={classes.tweetListId}>{data.user.id}</Typography>
+                        <Typography className={classes.tweetListId}>{data.user.username+"@"}</Typography>
                     </Grid>
                     <Typography dangerouslySetInnerHTML={renderTweet(data.text)} className={classes.tweetText}></Typography>
                     {
