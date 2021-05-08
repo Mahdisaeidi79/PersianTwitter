@@ -6,7 +6,7 @@ import { getUsers } from '../../Api/api_tweet';
 import { uploadUserPhoto } from '../../Api/api_auth';
 import { toast } from 'react-toastify';
 
-export const Tweetest = ({ name, id, img }) => {
+const Tweetest = ({ name, id, img }) => {
     const classes = useStyle()
     const userImage = () => {
         if (img)
