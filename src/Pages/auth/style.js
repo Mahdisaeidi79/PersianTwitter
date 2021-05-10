@@ -20,21 +20,27 @@ const useStyle = makeStyles((theme) => ({
         backdropFilter: 'blur(50rem)',
         boxShadow: '1.25rem 1.25rem 3.75rem -0.375rem rgba(0,0,0,0.2)',
         borderRadius: '1.5rem',
-        [theme.breakpoints.between('500', '1200')]: {
-            width: '55%',
-            margin: '18% auto',
-            right: '22%',
+        [theme.breakpoints.between('500', '900')]: {
+            width: '71%',
+            margin: '32% auto',
+            right: '15%',
+            left: '24%'
+        },
+        [theme.breakpoints.between('900', '1024')]: {
+            width: '68%',
+            margin: '34% auto',
+            right: '16%',
             left: '25%'
         },
         [theme.breakpoints.between('365', '500')]: {
-            width: '65%',
-            margin: '26% auto',
-            right: '17%',
+            width: '70%',
+            margin: '45% auto',
+            right: '14%',
             left: '50%'
         },
         [theme.breakpoints.between('xs', '365')]: {
             width: '70%',
-            margin: '26% auto',
+            margin: '37% auto',
             right: '15%',
             left: '50%'
         }
