@@ -4,6 +4,10 @@ import useStyle from './style';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useTheme } from '@material-ui/styles';
 import { ToggleLeftSide, ToggleSide, useLayoutDispatch } from '../../context/LayoutContext';
+import HomeIcon from '@material-ui/icons/Home';
+import { Link } from 'react-router-dom';
+import WhatshotOutlinedIcon from '@material-ui/icons/WhatshotOutlined';
+import PersonIcon from '@material-ui/icons/Person';
 
 const Header = ({ title, icon }) => {
     const theme = useTheme();
@@ -36,9 +40,9 @@ const Header = ({ title, icon }) => {
                 {title}
             </Typography>
             <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-                <MenuItem onClick={openRightsidebar}>داغ ترین هشتگ ها</MenuItem>
-                {isMobileSize && <MenuItem onClick={openLeftsidebar}>فعال ترین توییت باز ها</MenuItem>}
-
+                <MenuItem className={classes.menuItem}><HomeIcon style={{ paddingLeft: '0.5rem' }} /><Link to={"/"}>خانه</Link></MenuItem>
+                <MenuItem onClick={openRightsidebar} className={classes.menuItem}><WhatshotOutlinedIcon style={{ paddingLeft: '0.5rem' }}/>داغ ترین هشتگ ها</MenuItem>
+                {isMobileSize && <MenuItem onClick={openLeftsidebar} className={classes.menuItem}><PersonIcon style={{ paddingLeft: '0.5rem' }}/>فعال ترین توییت باز ها</MenuItem>}
             </Menu>
 
         </div>

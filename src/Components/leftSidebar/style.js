@@ -91,6 +91,15 @@ const useStyles = makeStyles((theme) => ({
             width: '2.2rem',
             height: '2.2rem',
         }
+    },
+    menuItem: {
+        fontFamily: 'Shabnam',
+        fontWeight: '800',
+        '&:focus': {
+            backgroundColor: '#1976D2',
+            color: '#FFFFFF',
+            borderRadius: '0.2rem'
+        }
     }
 }));
 

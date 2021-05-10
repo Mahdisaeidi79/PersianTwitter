@@ -5,6 +5,8 @@ import useStyle from './style';
 import { getUsers } from '../../Api/api_tweet';
 import { uploadUserPhoto } from '../../Api/api_auth';
 import { toast } from 'react-toastify';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ImageIcon from '@material-ui/icons/Image';
 
 const Tweetest = ({ name, id, img }) => {
     const classes = useStyle()
@@ -119,8 +121,8 @@ const LeftSidebar = () => {
                 }
             </Grid>
             <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-                <MenuItem onClick={() => { inputFile.current.click(); setAnchorEl(null); }}>ویرایش عکس پروفایل </MenuItem>
-                <MenuItem onClick={() => { localStorage.clear(); window.location.reload(); setAnchorEl(null); }}>خروج</MenuItem>
+                <MenuItem onClick={() => { inputFile.current.click(); setAnchorEl(null); }} className={classes.menuItem}><ImageIcon style={{paddingLeft:'0.5rem'}}/>ویرایش عکس پروفایل</MenuItem>
+                <MenuItem onClick={() => { localStorage.clear(); window.location.reload(); setAnchorEl(null); }} className={classes.menuItem}><ExitToAppIcon style={{paddingLeft:'0.5rem'}}/>خروج</MenuItem>
             </Menu>
         </div>
     )

@@ -1,7 +1,8 @@
 import { Grid, IconButton, Typography } from '@material-ui/core'
-import React from 'react'
+import React, { useState } from 'react'
 import useStyle from '../style'
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
+import FavoriteSharpIcon from '@material-ui/icons/FavoriteSharp';
 import { likeTweet, setTweetText, useTweetDispatch } from '../../../context/TweetContext';
 import { likeTweetRequest } from '../../../Api/api_tweet';
 import { toast } from 'react-toastify';
@@ -9,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 const TweetList = ({ data }) => {
     const tweetDispatch = useTweetDispatch();
+    const [clicked, setClicked] = useState(false)
     const classes = useStyle()
     const renderTweet = (text) => {
         return { __html: text.replace(/#\S+/g, "<a href='/tags/$&' style ='color:cornflowerblue ; text-decoration: none'>$&</a>") }
@@ -26,6 +28,7 @@ const TweetList = ({ data }) => {
             if (!isOk)
                 return toast.error(data);
             likeTweet(tweetDispatch, data._id);
+            setClicked(true);
         });
     }
     return (
@@ -50,11 +53,11 @@ const TweetList = ({ data }) => {
 
             </Grid>
             <Grid container direction={"row-reverse"} style={{ marginTop: '2rem' }}>
-                <IconButton className={classes.newTweetimg} onClick={retweetBtn}>
+                <IconButton className={classes.retweetBtn} onClick={retweetBtn}>
                     <img src={"/images/retweet.png"} alt={'ریتوییت'} />
                 </IconButton>
-                <IconButton className={classes.newTweetimg} onClick={likeBtn}>
-                    <FavoriteIcon style={{ color: 'red' }} />
+                <IconButton className={classes.likeBtn} onClick={likeBtn}>
+                {clicked ? <FavoriteSharpIcon style={{color:'red'}}/> : <FavoriteBorderSharpIcon />}
                 </IconButton>
                 <Typography className={classes.tweetLikeCount}>{data.likes}</Typography>
             </Grid>

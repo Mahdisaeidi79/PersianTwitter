@@ -81,7 +81,7 @@ const useStyle = makeStyles((theme) => ({
         fontFamily: 'Shabnam',
         padding: '1.5%',
         borderRadius: '1.5rem',
-        textShadow: '0.125rem 0.125rem 0.25rem rgba(0,0,0,0.2)',
+        textShadow: '0.125rem 0.125rem 0.1rem rgba(0,0,0,0.2)',
         "&:hover": {
             backgroundColor: 'rgba(255,255,255,0.1)',
             boxShadow: '0.25rem 0.25rem 3.75rem 0.5rem rgba(0,0,0,0.2)'

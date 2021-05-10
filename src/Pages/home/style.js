@@ -29,7 +29,10 @@ const useStyles = makeStyles({
         backgroundColor : 'white',
         display: 'flex',
         marginTop : '0.5rem',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        "&:hover":{
+            backgroundColor :'#fafafa'
+        }
     },
     input:{
         flex :1,
@@ -58,10 +61,21 @@ const useStyles = makeStyles({
             backgroundColor : '#84bfe8'
         }
     },
-     newTweetimg:{
+    retweetBtn:{
         border : '0.1px solid #3337 !important',
         padding : '0.55rem !important',
-        marginLeft : '1rem'
+        marginLeft : '1rem',
+        "&:hover":{
+            backgroundColor:'#5EA9DD'
+        }
+     },
+    likeBtn:{
+        border : '0.1px solid #3337 !important',
+        padding : '0.55rem !important',
+        marginLeft : '1rem',
+        "&:hover":{
+            color:'red'
+        }
      },
      tweetListName:{
          fontWeight : 600,
