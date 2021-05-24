@@ -1,0 +1,23 @@
+{
+    "short_name": "Twitter",
+    "name": "Twitter",
+    "icons": [
+      {
+        "src": "/images/logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/images/logo.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "white",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#5ea9dd",
+    "description": "A platform for tweeting"
+    
+  }
