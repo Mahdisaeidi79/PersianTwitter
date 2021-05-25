@@ -1,14 +1,19 @@
-import { Button, Paper, Tab, Tabs, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import { Button, Checkbox, FormControlLabel, Paper, Tab, Tabs, Typography } from '@material-ui/core'
+import React, { useEffect, useRef, useState } from 'react'
 import { loginApi, registerApi } from '../../Api/api_auth';
 import useStyle from './style';
 import { toast } from 'react-toastify';
+import Cookies from 'universal-cookie/es6';
+import moment from 'moment';
 
 export default function Authpage() {
     const classes = useStyle();
     const LOGIN_TAB_VALUE = 1;
     const REG_TAB_VALUE = 2;
     const [tab, setTab] = useState(LOGIN_TAB_VALUE);
+    const [checked, setChecked] = useState(false);
+    const userNameValue = useRef();
+    const cookies = new Cookies();
     const handleChange = (e, newValue) => {
         setTab(newValue);
     };
@@ -124,16 +129,28 @@ export default function Authpage() {
             localStorage.setItem("username", data.username);
             localStorage.setItem("x-auth-token", data["x-auth-token"]);
             window.location.reload();
-        })
+        });
+    };
+    const checkedBox = (event) => {
+        setChecked(event.target.checked);
+    };
+    if (checked && userNameValue.current.defaultValue != "") {
+        cookies.set('UserName', userNameValue.current.defaultValue, { path: '/', expires: moment().add(60, "days")._d });
     }
+    useEffect(() => {
+        if (!checked && userNameValue.current.defaultValue == "" && cookies.get('UserName') !== undefined)
+            userNameValue.current.defaultValue = cookies.get('UserName');
+    }, []);
+
     return (
         <div className={classes.root}>
             <Paper className={classes.container}>
                 <Typography className={classes.headerText}>توییتر فارسی</Typography>
                 {tab === LOGIN_TAB_VALUE &&
                     <div className={classes.Login}>
-                        <input type="text" value={usernameLogin} onChange={e => setUsernameLogin(e.target.value)} placeholder={"نام کاربری"} className={classes.input} />
+                        <input type="text" value={usernameLogin} ref={userNameValue} onChange={e => setUsernameLogin(e.target.value)} placeholder={"نام کاربری"} className={classes.input} />
                         <input type="password" value={passwordLogin} onChange={e => setPasswordLogin(e.target.value)} placeholder={"رمز عبور"} className={classes.input} />
+                        <FormControlLabel control={<Checkbox checked={checked} onChange={checkedBox} color="primary" />} label="مرا به خاطر بسپار" style={{margin:'2rem auto 0 auto'}}/>
                         <Button variant="contained" onClick={LoginBtn} style={{ marginTop: '2.5rem', backgroundColor: '#5ea9dd', color: 'white', marginBottom: '2rem' }}>ورود</Button>
                     </div>
                 }

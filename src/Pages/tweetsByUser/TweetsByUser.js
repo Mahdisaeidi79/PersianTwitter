@@ -23,9 +23,7 @@ const TweetsByUser = (props) => {
         <div className={classes.root}>
             <Header title={props.match.params.name} icon={<PesonIcon style={{ fontSize: 25 }} />} />
             <Divider className={classes.divider} />
-            {tweets.length === 0 &&
-                <Typography>توییتی برای این کاربر یافت نشد !!</Typography>
-            }
+            {tweets.length === 0 &&<Typography>توییتی برای این کاربر یافت نشد !!</Typography>}
             {
                 tweets.map((item) => <TweetList data={item} />)
             }
