@@ -43,21 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "this is persian twitter create by Reactjs",
-  "main": "index.js",
-  "devDependencies": {
-    "workbox-build": "^5.1.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mahdisaeidi79/PersianTwitter.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mahdisaeidi79/PersianTwitter/issues"
-  },
-  "homepage": "https://github.com/Mahdisaeidi79/PersianTwitter#readme"
+  }
 }

@@ -8,7 +8,7 @@
       content="This is Persian Twitter"
     />
     <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <meta name="theme-color" content="#5ea9dd"/>
     <title>Twitter</title>
   </head>
@@ -18,7 +18,7 @@
     <script>
       if ("serviceWorker" in navigator) {
           window.addEventListener("load", () => {
-              navigator.serviceWorker.register("sw.js").then(swReg => {
+              navigator.serviceWorker.register("/serviceworker.js").then(swReg => {
                   console.log("Worker Registered!");
               }).catch(error => {
                   console.log("There was an error", error);
